@@ -6,6 +6,7 @@ import javafx.scene.text.Text;
 
 public class MainViewController{
 	@FXML private Text actionT;
+	private MainServer ms;
 	
 	public MainViewController() {
 		
@@ -13,9 +14,14 @@ public class MainViewController{
 	
 	@FXML 
 	protected void handleStartButton(ActionEvent e) {
-		MainServer ms = new MainServer();
+		ms = new MainServer();
 		ms.start_connection();
 		System.out.println("OKAI");
+	}
+	
+	@FXML
+	protected void handleReceiveAndPerform(ActionEvent e) throws ClassNotFoundException, IOException {
+		ms.receive_message();
 	}
 	
 }
